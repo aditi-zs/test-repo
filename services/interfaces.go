@@ -6,6 +6,6 @@ import (
 )
 
 type Product interface {
-	GetAll(ctx *gofr.Context) ([]*models.Product, error)
+	GetAll(ctx *gofr.Context, f string) ([]*models.Product, error)
 	Create(ctx *gofr.Context, product *models.Product) error
 }

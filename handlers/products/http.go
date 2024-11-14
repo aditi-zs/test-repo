@@ -18,7 +18,9 @@ func New(productService services.Product) handlers.Product {
 }
 
 func (h *handler) Get(ctx *gofr.Context) (interface{}, error) {
-	data, err := h.productService.GetAll(ctx)
+	f := ctx.Param("name")
+
+	data, err := h.productService.GetAll(ctx, f)
 	if err != nil {
 		return nil, err
 	}
